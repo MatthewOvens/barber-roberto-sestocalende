@@ -584,10 +584,13 @@ h1, h2, h3, h4 {
 /* Coppie affiancate invece di uno slider a tendina: le foto del salone sono
    scattate a mano libera, con inquadrature e angoli diversi fra il prima e il
    dopo, e un cursore che sovrappone due scatti disallineati sembra rotto. */
+/* Due card per riga, non di piu': ogni card contiene gia' due foto affiancate,
+   quindi una terza colonna ridurrebbe ogni scatto a una miniatura. */
 .bas {
   display: grid; gap: var(--space-5);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: 1fr;
 }
+@media (min-width: 760px) { .bas { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); } }
 .ba {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -599,24 +602,21 @@ h1, h2, h3, h4 {
 .ba:hover { box-shadow: var(--sh-3); transform: translateY(-3px); }
 
 .ba__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
-.ba__side { position: relative; }
 .ba__btn { border-radius: var(--r-md); }
 .ba__side img {
   width: 100%; aspect-ratio: 3/4; object-fit: cover;
   border-radius: var(--r-md);
   background: var(--ink-050);
 }
-/* il badge deve restare sopra al bottone della lightbox */
-.ba__tag { pointer-events: none; }
+/* L'etichetta sta SOPRA la foto, non sovrapposta: in queste immagini il
+   soggetto arriva fino al bordo alto e un badge lo copriva. */
 .ba__tag {
-  position: absolute; top: var(--space-2); left: var(--space-2); z-index: 1;
-  font-size: var(--fs-xs); font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--fg); background: rgba(255,255,255,.92);
-  border-radius: var(--r-pill);
-  padding: var(--space-1) var(--space-3);
-  box-shadow: var(--sh-1);
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--fg-subtle);
 }
-.ba__tag--after { color: var(--on-accent); background: var(--accent); }
+.ba__tag--after { color: var(--accent-ink); }
 .ba__caption {
   margin-top: var(--space-4);
   font-size: var(--fs-sm); color: var(--fg-muted);
