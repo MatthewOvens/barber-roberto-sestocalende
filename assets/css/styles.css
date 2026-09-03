@@ -448,9 +448,10 @@ h1, h2, h3, h4 {
   box-shadow: var(--sh-1);
 }
 .chip strong { color: var(--fg); font-weight: 600; }
-/* le foto del salone sono 400px sul lato lungo: il contenitore le tiene
-   entro la loro risoluzione nativa invece di stirarle */
-.hero__media { position: relative; max-width: 460px; margin-inline: auto; }
+/* la vetrina e' a 1170px, ma la foto piccola in basso a destra e' ancora
+   a 400: il tetto tiene quella entro la sua risoluzione nativa (42% di 520px
+   fa 218px, cioe' 436 device px su schermi 2x). */
+.hero__media { position: relative; max-width: 520px; margin-inline: auto; }
 .hero__figure { overflow: hidden; border-radius: var(--r-xl); background: var(--ink-050); }
 .hero__figure--main img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
 .hero__figure--main { box-shadow: var(--sh-4); }
@@ -579,6 +580,48 @@ h1, h2, h3, h4 {
 
 .gallery__note { margin-top: var(--space-6); }
 
+/* ---------- 9b. PRIMA / DOPO ---------- */
+/* Coppie affiancate invece di uno slider a tendina: le foto del salone sono
+   scattate a mano libera, con inquadrature e angoli diversi fra il prima e il
+   dopo, e un cursore che sovrappone due scatti disallineati sembra rotto. */
+.bas {
+  display: grid; gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+}
+.ba {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--space-4);
+  box-shadow: var(--sh-1);
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.ba:hover { box-shadow: var(--sh-3); transform: translateY(-3px); }
+
+.ba__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.ba__side { position: relative; }
+.ba__btn { border-radius: var(--r-md); }
+.ba__side img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover;
+  border-radius: var(--r-md);
+  background: var(--ink-050);
+}
+/* il badge deve restare sopra al bottone della lightbox */
+.ba__tag { pointer-events: none; }
+.ba__tag {
+  position: absolute; top: var(--space-2); left: var(--space-2); z-index: 1;
+  font-size: var(--fs-xs); font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--fg); background: rgba(255,255,255,.92);
+  border-radius: var(--r-pill);
+  padding: var(--space-1) var(--space-3);
+  box-shadow: var(--sh-1);
+}
+.ba__tag--after { color: var(--on-accent); background: var(--accent); }
+.ba__caption {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm); color: var(--fg-muted);
+}
+
 /* ---------- 10. PRICING ---------- */
 .pricing {
   display: grid; gap: var(--space-5);
@@ -667,14 +710,14 @@ h1, h2, h3, h4 {
   border-radius: var(--r-pill); padding: var(--space-1) var(--space-3);
 }
 
-.brands__shot {
+.brands__shots {
   margin-top: var(--space-7);
-  display: grid; gap: var(--space-4); align-items: center;
-  max-width: 780px;
+  display: grid; gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
-@media (min-width: 720px) { .brands__shot { grid-template-columns: 400px 1fr; gap: var(--space-6); } }
+.brands__shot { display: grid; gap: var(--space-3); align-content: start; }
 .brands__shot img { width: 100%; border-radius: var(--r-lg); box-shadow: var(--sh-2); }
-.brands__shot figcaption { font-size: var(--fs-sm); color: var(--fg-muted); max-width: 36ch; }
+.brands__shot figcaption { font-size: var(--fs-sm); color: var(--fg-muted); max-width: 40ch; }
 
 /* ---------- 10c. MANIFESTO ---------- */
 .manifesto { background: var(--brand); color: #E8EFEA; padding-block: var(--space-10); }
@@ -1168,8 +1211,10 @@ h1, h2, h3, h4 {
 .lightbox::backdrop { background: rgba(11,20,16,.94); }
 .lightbox__figure { grid-column: 2; display: grid; place-items: center; gap: var(--space-4); padding: var(--space-4); }
 .lightbox__figure img {
-  /* le foto originali arrivano a 400px: ingrandirle oltre le sgrana */
-  max-width: min(100%, 640px); max-height: 78dvh;
+  /* Le foto in galleria hanno risoluzioni diverse: alcune 400px, altre 1170.
+     main.js scrive --nat-w con la naturalWidth dello scatto aperto, cosi'
+     nessuna viene mai mostrata piu' grande di com'e' davvero. */
+  max-width: min(100%, var(--nat-w, 640px)); max-height: 78dvh;
   border-radius: var(--r-md);
   box-shadow: 0 30px 80px rgba(0,0,0,.5);
   animation: lbIn var(--dur-slow) var(--ease-out);

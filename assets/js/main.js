@@ -160,6 +160,16 @@
     lbImg.src = bigSrc(img.currentSrc || img.src);
     lbImg.alt = img.alt;
     lbCap.textContent = img.alt;
+    capNativeWidth();
+  }
+
+  /* Nessuno scatto va mostrato piu' grande della sua risoluzione reale:
+     in galleria convivono foto da 400px e da 1170px. */
+  function capNativeWidth() {
+    var apply = function () {
+      if (lbImg.naturalWidth) lbImg.style.setProperty("--nat-w", lbImg.naturalWidth + "px");
+    };
+    if (lbImg.complete) apply(); else lbImg.addEventListener("load", apply, { once: true });
   }
 
   lbTriggers.forEach(function (btn, i) {

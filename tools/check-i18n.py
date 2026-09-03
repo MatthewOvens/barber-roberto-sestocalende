@@ -41,6 +41,10 @@ html = read(HTML)
 i18n = read(I18N)
 main = read(MAIN)
 
+# I commenti HTML non sono markup: se uno mostra un data-i18n di esempio,
+# non e' una chiave da cercare nel dizionario.
+html = re.sub(r'<!--.*?-->', '', html, flags=re.S)
+
 it = dict_keys(i18n, 'it', '    en: {')
 en = dict_keys(i18n, 'en', '\n  };\n')
 

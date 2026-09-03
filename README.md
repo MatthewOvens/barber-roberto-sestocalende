@@ -21,9 +21,9 @@ della mappa si comportano come in produzione.
 ```
 index.html                 markup completo (italiano = sorgente di verità)
 assets/css/styles.css      design system + tutti i componenti
-assets/js/i18n.js          dizionari IT/EN (217 chiavi per lingua) + applicatore
+assets/js/i18n.js          dizionari IT/EN (237 chiavi per lingua) + applicatore
 assets/js/main.js          nav, reveal, lightbox, prenotazione, toast
-assets/img/                9 foto reali del salone
+assets/img/                20 foto reali del salone
 tools/check-i18n.py        verifica che i due dizionari restino allineati
 ```
 
@@ -40,7 +40,7 @@ PagineBianche, Google Maps) prima di finire nel markup e nel JSON-LD.
 | P.IVA | 03169260126 |
 | Social | Instagram `@roberto.hairstudio` · Facebook *Hair Studio Diffusion* |
 | Apertura | 1989 |
-| Brand | Davines · American Crew · L'Oréal Professionnel (salone partner) |
+| Brand | Davines · American Crew · L'Oréal Professionnel (salone partner) · **Nashi Argan?** (vedi sotto) |
 
 **Orari** (sono anche la base da cui `main.js` genera gli slot di prenotazione):
 
@@ -60,6 +60,18 @@ PagineBianche, Google Maps) prima di finire nel markup e nel JSON-LD.
 > quanto risulta oggi. Se il salone ha traslocato in un momento diverso da quello
 > che abbiamo ricostruito, va corretto in `index.html` (markup, JSON-LD, embed
 > mappa) e in `README.md`.
+
+> **Da confermare con Roberto: i brand.** La foto attuale della vetrina mostra in
+> esposizione prodotti **Nashi Argan**, che il sito non nomina. Le altre tre linee
+> restano documentate: American Crew si vede nello scatto `tools2.jpg`, Davines
+> negli scatti dei prodotti, L'Oréal Professionnel dalla scheda ufficiale di
+> salone partner. Non ho toccato la sezione *Prodotti* perché non so se Nashi
+> abbia sostituito una delle altre o si sia aggiunta: va chiesto e sistemato.
+
+> **Nella vetrina c'è un listino stampato.** In `vetrina.jpg`, sulla destra, è
+> appeso un tariffario del salone. A questa risoluzione non è leggibile, ma una
+> foto ravvicinata di quel foglio riempirebbe da sola la sezione *Listino*, che
+> oggi è tutta a `€ ––`.
 
 ## Design system
 
@@ -84,23 +96,39 @@ Dark mode volutamente assente (vedi `CLAUDE.md`).
 
 ## Immagini
 
-Le 9 foto in `assets/img/` sono **foto vere del salone**, recuperate dalla scheda
-pubblica su PagineGialle/PagineBianche, scaricate e servite in locale. Sono state
-guardate una per una prima di assegnarle: logo, vetrina con l'insegna verde,
-interno con la poltrona da barbiere e il pavimento in cotto, due lavori di
-colore, prodotti Davines, la locandina *Man & Woman Concept*.
+Sono tutte **foto vere del salone**, guardate una per una prima di assegnarle.
+Arrivano da due fonti e hanno due risoluzioni diverse:
 
-Il limite è la risoluzione: **400 px sul lato lungo**. Il layout ne tiene conto —
-`.hero__media` è limitato a 460 px e la lightbox a 640 px, così non vengono mai
-ingrandite oltre la loro risoluzione nativa. Per la produzione servono gli
-originali da Roberto, poi WebP/AVIF con `srcset`.
+**A 1170 px** (fornite dal salone, dal profilo Instagram): le 4 coppie
+`ba-N-prima.jpg` / `ba-N-dopo.jpg`, i due scatti degli attrezzi `tools.jpg` e
+`tools2.jpg`, e la `vetrina.jpg` attuale.
 
-Per lo stesso motivo le card dei servizi usano icone SVG e non foto: sarebbe
-servito riciclare la stessa immagine su più card.
+**A 400 px** (recuperate dalla scheda pubblica PagineGialle/PagineBianche):
+logo, interno, i due lavori di colore, i prodotti Davines, la locandina
+*Man & Woman Concept* e `vetrina-manifesto.jpg`.
+
+`vetrina-manifesto.jpg` è lo scatto **precedente** della vetrina, quello con
+l'insegna verde e il manifesto Davines stampato sul vetro. Lo usa solo la sezione
+*Manifesto*, perché è la prova di quel testo: la vetrina di oggi ha una grafica
+diversa e quel manifesto non si vede più. Non sostituirlo con `vetrina.jpg`.
+
+Le due risoluzioni convivono senza che nessuna venga stirata:
+
+- `.hero__media` è limitato a 520 px — la vetrina grande respira, e la foto
+  piccola in basso a destra (`interno.jpg`, 400 px) resta entro il suo nativo
+- la lightbox non ha più un tetto fisso: `main.js` scrive `--nat-w` con la
+  `naturalWidth` dello scatto aperto, così ciascuna foto si ferma alla propria
+  risoluzione reale
+
+Restano da avere in alta risoluzione le 9 foto a 400 px. Poi, per tutte,
+WebP/AVIF con `srcset`.
+
+Le card dei servizi usano icone SVG e non foto: con le immagini disponibili
+sarebbe servito riciclare lo stesso scatto su più card.
 
 ## Sezioni con contenuti da completare
 
-Tre sezioni hanno la struttura ma non i dati veri. Sono marcate a video con il
+Quattro sezioni hanno la struttura ma non i dati veri. Sono marcate a video con il
 componente `.todo` (riquadro tratteggiato color cotto) e in `index.html` con un
 commento in testa alla sezione:
 
@@ -110,10 +138,28 @@ commento in testa alla sezione:
   due schede sono segnaposto espliciti.
 - **Recensioni** — nessuna recensione testuale pubblica trovata. Vanno importate
   da Google, con il testo e il nome di chi le ha scritte.
+(La sezione *Prima / dopo* è invece completa: 4 coppie reali.)
 
 Il riquadro `.todo` è volutamente fuori palette: finché resta a video è un
 promemoria che quella sezione non è pronta. Quando i dati arrivano si rimuove il
 `.todo` insieme al commento; se una sezione non serve, si rimuove tutta.
+
+### Le foto prima/dopo
+
+Le 4 coppie in `assets/img/ba-*.jpg` arrivano dal profilo Instagram del salone,
+[@roberto.hairstudio](https://www.instagram.com/roberto.hairstudio/), esportate a
+mano da chi ha accesso all'account: **da qui non erano recuperabili**, Instagram
+serve ai visitatori non autenticati solo un guscio di login e ogni endpoint
+alternativo è chiuso. Se ne servono altre, la strada è la stessa.
+
+Sono tutte scattate **di spalle**, senza volti riconoscibili — il che riduce
+molto la questione privacy che restava aperta. Resta il fatto che sono clienti
+reali: la pubblicazione sul sito va bene finché è Roberto a fornirle, come qui.
+
+Per aggiungerne altre: due file `ba-N-prima.jpg` e `ba-N-dopo.jpg` in
+`assets/img/`, poi una `<li class="ba">` copiata da una esistente in
+`#trasformazioni`, con le due chiavi `alt.baNprima` / `alt.baNdopo` e la
+didascalia `ba.capN` aggiunte a **entrambi** i dizionari.
 
 ## Prenotazione
 
@@ -176,8 +222,10 @@ aggiungi un `<button class="lang__btn" data-lang="xx">` nell'header.
 1. Confermare l'indirizzo (vedi il riquadro sopra)
 2. Farsi dare da Roberto le foto originali ad alta risoluzione, e una foto sua
    per la scheda del team
-3. Riempire o rimuovere le tre sezioni marcate `.todo`
-4. Collegare il form a un backend o a un gestionale, e solo allora togliere
+3. Riempire o rimuovere le tre sezioni ancora marcate `.todo` (listino, team,
+   recensioni) — per il listino, partire dal tariffario appeso in vetrina
+4. Chiarire la posizione di Nashi Argan fra i brand (vedi sopra)
+5. Collegare il form a un backend o a un gestionale, e solo allora togliere
    l'avviso `.bform__demo`
-5. Scrivere privacy e cookie policy (i link nel footer sono placeholder `#`)
-6. Verificare che l'embed della mappa punti al posto giusto
+6. Scrivere privacy e cookie policy (i link nel footer sono placeholder `#`)
+7. Verificare che l'embed della mappa punti al posto giusto

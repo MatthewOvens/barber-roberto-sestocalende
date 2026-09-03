@@ -5,7 +5,7 @@
    viene applicato su richiesta e salvato in localStorage.
 
    Le due tabelle devono avere sempre lo stesso numero di chiavi:
-   oggi sono 217 e 217.
+   oggi sono 237 e 237.
    ============================================================ */
 (function () {
   "use strict";
@@ -35,7 +35,7 @@
 
       /* — testi alternativi delle foto — */
       "alt.logo": "Logo Hair Studio diffusion: un'orca stilizzata dentro una cornice rosa e bordeaux",
-      "alt.vetrina": "La vetrina del salone con l'insegna verde Hair Studio e il manifesto Davines applicato sul vetro",
+      "alt.vetrina": "Vetrina del salone: la scritta Hair Studio, Man & Woman Concept sul vetro, un mazzo di mimose e i prodotti in esposizione",
       "alt.interno": "Interno del salone: postazioni nere con specchi, poltrona da barbiere e pavimento in cotto",
       "alt.balayage": "Capelli lunghi mossi con balayage dal castano al rame, visti di spalle in salone",
       "alt.styling": "Il parrucchiere spruzza un prodotto sui capelli mentre li tiene tesi con il pettine",
@@ -43,6 +43,16 @@
       "alt.davinesShampoo": "Tre flaconi di shampoo Davines SOLU e NOUNOU accanto a piante grasse",
       "alt.davinesBanner": "Flaconi e vasetti Davines appoggiati su un piano di legno chiaro",
       "alt.concept": "Locandina del salone: Hair Studio, Man & Woman Concept, dal 1989",
+      "alt.tools": "Attrezzi da barbiere su un tappetino Wahl: tosatrice, rifinitore dorato, pettine rosso e due forbici",
+      "alt.tools2": "Il banco da lavoro: tosatrice Wahl, rifinitore, rasoio a mano libera, pettini, forbici e i vasetti American Crew",
+      "alt.ba1prima": "Capelli lunghi visti di spalle: ricrescita scura e lunghezze biondo ramato secche e crespe",
+      "alt.ba1dopo": "Gli stessi capelli dopo il servizio: biondo caldo uniforme e onde morbide e lucide",
+      "alt.ba2prima": "Capelli scuri di media lunghezza visti di spalle, molto crespi e gonfi",
+      "alt.ba2dopo": "Gli stessi capelli dopo il servizio: lisci, lucidi e visibilmente più lunghi",
+      "alt.ba3prima": "Capelli di media lunghezza visti di spalle, mossi e spenti con ricrescita scura",
+      "alt.ba3dopo": "Gli stessi capelli dopo il servizio: ricci definiti con riflessi caramello",
+      "alt.ba4prima": "Capelli lunghi biondi visti di spalle, di tono uniforme e opaco, con lunghezze crespe",
+      "alt.ba4dopo": "Gli stessi capelli dopo il servizio: biondo multitono luminoso con onde definite",
       "alt.manifesto": "Il manifesto stampato sul vetro della vetrina, accanto all'insegna verde",
 
       /* — marchio — */
@@ -111,6 +121,17 @@
       "look.lead": "Foto scattate in salone, in via XX Settembre. Nessun set, nessun modello: sono clienti veri e la luce è quella che c'è.",
       "look.ig": "Altri lavori su Instagram, @roberto.hairstudio",
 
+      /* — prima / dopo — */
+      "ba.eyebrow": "Prima e dopo",
+      "ba.title": "La differenza, sulla stessa testa",
+      "ba.lead": "Un colore si giudica dal punto di partenza. Qui le due foto stanno affiancate: com'era entrando, com'era uscendo. Sono clienti del salone, fotografate di spalle.",
+      "ba.before": "Prima",
+      "ba.after": "Dopo",
+      "ba.cap1": "Prima: ricrescita scura e lunghezze ramate, secche e crespe. Dopo: biondo caldo uniforme dalla radice alle punte, onde morbide e lucide.",
+      "ba.cap2": "Prima: capello scuro molto crespo e gonfio, che sembrava più corto di quanto fosse. Dopo: liscio, disciplinato e lucido — la lunghezza reale è tornata visibile.",
+      "ba.cap3": "Prima: media lunghezza mossa, ricrescita scura e lunghezze spente. Dopo: riflessi caramello distribuiti sulle onde e ricci definiti.",
+      "ba.cap4": "Prima: biondo uniforme e opaco, lunghezze crespe. Dopo: biondo multitono con schiariture chiare, onde definite e luminose.",
+
       /* — listino — */
       "price.eyebrow": "Listino",
       "price.title": "Quanto costa",
@@ -143,7 +164,8 @@
       "brand2.text": "Fiber, pomate e prodotti per la barba. Tenuta senza effetto plastica, pensata per i tagli maschili corti e medi.",
       "brand3.role": "Colore e trattamenti tecnici",
       "brand3.text": "Siamo salone partner: Dia Color per il tono su tono, French Balayage per le schiariture, Metal Detox e Absolut Repair Molecular in cabina.",
-      "brands.caption": "Le linee Davines sono in vendita in salone: se una ti trovi bene, la ricompri qui.",
+      "brands.cap1": "Il banco da lavoro per l'uomo: rasoio, macchinette, forbici e i vasetti American Crew.",
+      "brands.caption": "Le linee in vendita in salone: se una ti trovi bene, la ricompri qui.",
 
       /* — manifesto — */
       "mani.eyebrow": "Sulla vetrina",
@@ -306,7 +328,7 @@
 
       /* — testi alternativi delle foto — */
       "alt.logo": "Hair Studio diffusion logo: a stylised orca inside a pink and burgundy frame",
-      "alt.vetrina": "The salon window with the green Hair Studio sign and the Davines manifesto printed on the glass",
+      "alt.vetrina": "The salon window: the Hair Studio, Man &amp; Woman Concept lettering on the glass, a bunch of mimosa and the products on display",
       "alt.interno": "Inside the salon: black stations with mirrors, a barber chair and a terracotta tiled floor",
       "alt.balayage": "Long wavy hair with a balayage from brown to copper, seen from behind in the salon",
       "alt.styling": "The hairdresser sprays a product onto the hair while holding it taut with a comb",
@@ -314,6 +336,16 @@
       "alt.davinesShampoo": "Three bottles of Davines SOLU and NOUNOU shampoo next to succulents",
       "alt.davinesBanner": "Davines bottles and jars resting on a pale wooden surface",
       "alt.concept": "Salon poster: Hair Studio, Man &amp; Woman Concept, since 1989",
+      "alt.tools": "Barber tools on a Wahl mat: clipper, gold trimmer, red comb and two pairs of shears",
+      "alt.tools2": "The workbench: Wahl clipper, trimmer, straight razor, combs, shears and the American Crew tubs",
+      "alt.ba1prima": "Long hair seen from behind: dark regrowth and dry, frizzy coppery lengths",
+      "alt.ba1dopo": "The same hair after the service: an even warm blonde with soft, glossy waves",
+      "alt.ba2prima": "Mid-length dark hair seen from behind, very frizzy and swollen",
+      "alt.ba2dopo": "The same hair after the service: straight, glossy and visibly longer",
+      "alt.ba3prima": "Mid-length hair seen from behind, wavy and dull with dark regrowth",
+      "alt.ba3dopo": "The same hair after the service: defined curls with caramel highlights",
+      "alt.ba4prima": "Long blonde hair seen from behind, flat and uniform in tone, with frizzy lengths",
+      "alt.ba4dopo": "The same hair after the service: a luminous multi-tonal blonde with defined waves",
       "alt.manifesto": "The manifesto printed on the shop window glass, next to the green sign",
 
       /* — marchio — */
@@ -382,6 +414,17 @@
       "look.lead": "Photos taken in the salon, on via XX Settembre. No set, no models: these are real clients and the light is whatever there was.",
       "look.ig": "More work on Instagram, @roberto.hairstudio",
 
+      /* — prima / dopo — */
+      "ba.eyebrow": "Before and after",
+      "ba.title": "The difference, on the same head",
+      "ba.lead": "Colour is judged against where it started. Here the two photos sit side by side: how it looked walking in, how it looked walking out. These are salon clients, photographed from behind.",
+      "ba.before": "Before",
+      "ba.after": "After",
+      "ba.cap1": "Before: dark regrowth and dry, frizzy coppery lengths. After: an even warm blonde from root to tip, with soft, glossy waves.",
+      "ba.cap2": "Before: very frizzy, swollen dark hair that looked shorter than it was. After: straight, smooth and glossy — the real length is visible again.",
+      "ba.cap3": "Before: mid-length and wavy, with dark regrowth and dull lengths. After: caramel highlights spread through the waves, curls defined.",
+      "ba.cap4": "Before: a flat, uniform blonde with frizzy lengths. After: a multi-tonal blonde with bright lift and defined waves.",
+
       /* — listino — */
       "price.eyebrow": "Prices",
       "price.title": "What it costs",
@@ -414,7 +457,8 @@
       "brand2.text": "Fiber, pomades and beard products. Hold without the plastic feel, made for short and medium men's cuts.",
       "brand3.role": "Colour and technical treatments",
       "brand3.text": "We are a partner salon: Dia Color for tone-on-tone, French Balayage for lightening, Metal Detox and Absolut Repair Molecular at the basin.",
-      "brands.caption": "The Davines lines are for sale in the salon: if one suits you, you buy it again here.",
+      "brands.cap1": "The men's workbench: razor, clippers, shears and the American Crew tubs.",
+      "brands.caption": "The lines on sale in the salon: if one suits you, you buy it again here.",
 
       /* — manifesto — */
       "mani.eyebrow": "On the window",
