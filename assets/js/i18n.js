@@ -24,10 +24,6 @@
       "a11y.call": "Chiama il salone",
       "a11y.footerNav": "Link di navigazione nel footer",
       "a11y.closeBooking": "Chiudi la prenotazione",
-      "a11y.lightbox": "Immagine ingrandita",
-      "a11y.close": "Chiudi",
-      "a11y.prev": "Immagine precedente",
-      "a11y.next": "Immagine successiva",
       "a11y.closeMenu": "Chiudi il menu",
 
       /* — barra in alto — */
@@ -127,10 +123,6 @@
       "ba.lead": "Un colore si giudica dal punto di partenza. Qui le due foto stanno affiancate: com'era entrando, com'era uscendo. Sono clienti del salone, fotografate di spalle.",
       "ba.before": "Prima",
       "ba.after": "Dopo",
-      "ba.cap1": "Prima: ricrescita scura e lunghezze ramate, secche e crespe. Dopo: biondo caldo uniforme dalla radice alle punte, onde morbide e lucide.",
-      "ba.cap2": "Prima: capello scuro molto crespo e gonfio, che sembrava più corto di quanto fosse. Dopo: liscio, disciplinato e lucido — la lunghezza reale è tornata visibile.",
-      "ba.cap3": "Prima: media lunghezza mossa, ricrescita scura e lunghezze spente. Dopo: riflessi caramello distribuiti sulle onde e ricci definiti.",
-      "ba.cap4": "Prima: biondo uniforme e opaco, lunghezze crespe. Dopo: biondo multitono con schiariture chiare, onde definite e luminose.",
 
       /* — listino — */
       "price.eyebrow": "Listino",
@@ -317,10 +309,6 @@
       "a11y.call": "Call the salon",
       "a11y.footerNav": "Footer navigation links",
       "a11y.closeBooking": "Close the booking form",
-      "a11y.lightbox": "Enlarged image",
-      "a11y.close": "Close",
-      "a11y.prev": "Previous image",
-      "a11y.next": "Next image",
       "a11y.closeMenu": "Close menu",
 
       /* — barra in alto — */
@@ -420,10 +408,6 @@
       "ba.lead": "Colour is judged against where it started. Here the two photos sit side by side: how it looked walking in, how it looked walking out. These are salon clients, photographed from behind.",
       "ba.before": "Before",
       "ba.after": "After",
-      "ba.cap1": "Before: dark regrowth and dry, frizzy coppery lengths. After: an even warm blonde from root to tip, with soft, glossy waves.",
-      "ba.cap2": "Before: very frizzy, swollen dark hair that looked shorter than it was. After: straight, smooth and glossy — the real length is visible again.",
-      "ba.cap3": "Before: mid-length and wavy, with dark regrowth and dull lengths. After: caramel highlights spread through the waves, curls defined.",
-      "ba.cap4": "Before: a flat, uniform blonde with frizzy lengths. After: a multi-tonal blonde with bright lift and defined waves.",
 
       /* — listino — */
       "price.eyebrow": "Prices",

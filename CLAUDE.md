@@ -8,7 +8,7 @@ Avvio: `python -m http.server 8000`
 index.html              markup (italiano = sorgente di verità)
 assets/css/styles.css   token in :root + tutti i componenti
 assets/js/i18n.js       dizionari it/en + applicatore
-assets/js/main.js       nav, reveal, lightbox, prenotazione, toast
+assets/js/main.js       nav, reveal, prenotazione, toast
 assets/img/             20 foto vere del salone (1170px le nuove, 400px le vecchie)
 tools/check-i18n.py     verifica la parità dei dizionari
 ```
@@ -27,7 +27,7 @@ di prenotazione: finché non c'è una `fetch()` vera, l'avviso `.bform__demo`
 (è la sorgente di verità: il sito deve restare leggibile senza JS). Poi la
 stessa chiave va aggiunta in **entrambi** i dizionari `it` e `en` di
 `assets/js/i18n.js`. Le due tabelle devono avere lo stesso numero di chiavi,
-sempre — oggi sono 237 e 237. Una chiave presente solo in `it` non dà errore:
+sempre — oggi sono 229 e 229. Una chiave presente solo in `it` non dà errore:
 il testo resta semplicemente in italiano quando l'utente passa a EN, e non se
 ne accorge nessuno finché non clicca il toggle. Dopo ogni modifica ai testi:
 `python tools/check-i18n.py`.
@@ -52,8 +52,8 @@ fra gli anti-pattern per Soft UI Evolution applicato al settore beauty.
 - Le foto convivono a **due risoluzioni**: 1170px quelle date dal salone
   (coppie prima/dopo, attrezzi, vetrina), 400px quelle recuperate dalle
   directory. Nessuna va mai mostrata sopra il proprio nativo: `.hero__media` è
-  a 520px e la lightbox si autolimita con `--nat-w`, che `main.js` scrive dalla
-  `naturalWidth`. Non rimettere un tetto fisso in `.lightbox__figure img`.
+  a 520px, in galleria e nel prima/dopo le foto sono ritagliate a `object-fit:
+  cover` dentro riquadri molto più piccoli del nativo.
   Le card dei servizi usano icone e non foto.
 - `vetrina.jpg` e `vetrina-manifesto.jpg` sono **due scatti diversi** della stessa
   vetrina in due momenti. Il secondo, più vecchio, è l'unico che mostra il
@@ -78,8 +78,14 @@ fra gli anti-pattern per Soft UI Evolution applicato al settore beauty.
 - La sezione prima/dopo usa coppie affiancate, non uno slider a tendina: le foto
   sono scattate a mano libera con inquadrature diverse fra il prima e il dopo, e
   un cursore che le sovrappone sembra rotto. Non convertirla in slider.
-- Le didascalie delle coppie descrivono **solo quello che si vede** nelle due
-  foto. Non aggiungerci quali prodotti sono stati usati: non lo sappiamo.
+- Le coppie prima/dopo **non hanno didascalia**: sotto le foto non va scritto
+  niente, parlano le immagini. Restano gli `alt`, che descrivono **solo quello
+  che si vede**: non aggiungerci quali prodotti sono stati usati, non lo
+  sappiamo.
+- **Nessuna foto è cliccabile**: la lightbox è stata rimossa apposta, in
+  galleria e nel prima/dopo. Niente `<button>` attorno alle immagini, niente
+  icona lente in hover, niente zoom o cambio di luminosità al passaggio del
+  mouse: sono affordance che promettono un ingrandimento che non esiste.
 
 Il resto (dati del salone, provenienza delle foto, dubbio sull'indirizzo,
 flusso di prenotazione, cosa manca per andare online) è nel `README.md` e non va

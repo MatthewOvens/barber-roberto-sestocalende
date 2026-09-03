@@ -21,8 +21,8 @@ della mappa si comportano come in produzione.
 ```
 index.html                 markup completo (italiano = sorgente di verità)
 assets/css/styles.css      design system + tutti i componenti
-assets/js/i18n.js          dizionari IT/EN (237 chiavi per lingua) + applicatore
-assets/js/main.js          nav, reveal, lightbox, prenotazione, toast
+assets/js/i18n.js          dizionari IT/EN (229 chiavi per lingua) + applicatore
+assets/js/main.js          nav, reveal, prenotazione, toast
 assets/img/                20 foto reali del salone
 tools/check-i18n.py        verifica che i due dizionari restino allineati
 ```
@@ -116,9 +116,9 @@ Le due risoluzioni convivono senza che nessuna venga stirata:
 
 - `.hero__media` è limitato a 520 px — la vetrina grande respira, e la foto
   piccola in basso a destra (`interno.jpg`, 400 px) resta entro il suo nativo
-- la lightbox non ha più un tetto fisso: `main.js` scrive `--nat-w` con la
-  `naturalWidth` dello scatto aperto, così ciascuna foto si ferma alla propria
-  risoluzione reale
+- galleria e prima/dopo ritagliano le foto con `object-fit: cover` dentro
+  riquadri molto più piccoli del nativo, quindi nessuno scatto viene stirato.
+  Le immagini non si aprono ingrandite: nessuna lightbox, nessun click
 
 Restano da avere in alta risoluzione le 9 foto a 400 px. Poi, per tutte,
 WebP/AVIF con `srcset`.
@@ -158,8 +158,8 @@ reali: la pubblicazione sul sito va bene finché è Roberto a fornirle, come qui
 
 Per aggiungerne altre: due file `ba-N-prima.jpg` e `ba-N-dopo.jpg` in
 `assets/img/`, poi una `<li class="ba">` copiata da una esistente in
-`#trasformazioni`, con le due chiavi `alt.baNprima` / `alt.baNdopo` e la
-didascalia `ba.capN` aggiunte a **entrambi** i dizionari.
+`#trasformazioni`, con le due chiavi `alt.baNprima` / `alt.baNdopo` aggiunte a
+**entrambi** i dizionari. Le coppie non hanno didascalia sotto: parlano le foto.
 
 ## Prenotazione
 
@@ -212,8 +212,8 @@ aggiungi un `<button class="lang__btn" data-lang="xx">` nell'header.
 - skip link, `:focus-visible` visibile su tutti gli elementi interattivi
 - target touch ≥ 44×44 px (bottoni, slot orari, switch lingua, social, burger)
 - gerarchia dei titoli senza salti, un solo `h1`, `alt` su tutte le immagini
-- `<dialog>` nativo per prenotazione e lightbox: Esc, focus trap e ritorno del
-  focus all'elemento che ha aperto la modale
+- `<dialog>` nativo per la prenotazione: Esc, focus trap e ritorno del focus
+  all'elemento che ha aperto la modale
 - `prefers-reduced-motion` disattiva reveal, parallasse e hover animati
 - gli errori non usano solo il colore: icona + testo con la soluzione
 

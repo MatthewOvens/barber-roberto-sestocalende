@@ -141,63 +141,7 @@
     toastTimer = setTimeout(function () { toastEl.classList.remove("is-visible"); }, 4000);
   }
 
-  /* ══════════════ 8. LIGHTBOX ══════════════ */
-  var lightbox = $("#lightbox");
-  var lbImg = $("#lightboxImg");
-  var lbCap = $("#lightboxCap");
-  var lbTriggers = $$("[data-lightbox]");
-  var lbIndex = 0;
-  var lbOpener = null;
-
-  /* le foto del salone sono servite in locale e gia' alla loro risoluzione
-     massima: non c'e' una versione piu' grande da chiedere */
-  function bigSrc(src) { return src; }
-
-  function showLb(i) {
-    if (!lbTriggers.length) return;
-    lbIndex = (i + lbTriggers.length) % lbTriggers.length;
-    var img = $("img", lbTriggers[lbIndex]);
-    lbImg.src = bigSrc(img.currentSrc || img.src);
-    lbImg.alt = img.alt;
-    lbCap.textContent = img.alt;
-    capNativeWidth();
-  }
-
-  /* Nessuno scatto va mostrato piu' grande della sua risoluzione reale:
-     in galleria convivono foto da 400px e da 1170px. */
-  function capNativeWidth() {
-    var apply = function () {
-      if (lbImg.naturalWidth) lbImg.style.setProperty("--nat-w", lbImg.naturalWidth + "px");
-    };
-    if (lbImg.complete) apply(); else lbImg.addEventListener("load", apply, { once: true });
-  }
-
-  lbTriggers.forEach(function (btn, i) {
-    btn.addEventListener("click", function () {
-      lbOpener = btn;
-      showLb(i);
-      if (typeof lightbox.showModal === "function") lightbox.showModal();
-    });
-  });
-
-  $("[data-lb-prev]").addEventListener("click", function () { showLb(lbIndex - 1); });
-  $("[data-lb-next]").addEventListener("click", function () { showLb(lbIndex + 1); });
-  $("[data-close-lightbox]").addEventListener("click", function () { lightbox.close(); });
-
-  lightbox.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft")  { e.preventDefault(); showLb(lbIndex - 1); }
-    if (e.key === "ArrowRight") { e.preventDefault(); showLb(lbIndex + 1); }
-  });
-  lightbox.addEventListener("close", function () {
-    lbImg.src = "";
-    if (lbOpener) { lbOpener.focus(); lbOpener = null; }
-  });
-  /* click on the backdrop area closes */
-  lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) lightbox.close();
-  });
-
-  /* ══════════════ 9. BOOKING ══════════════ */
+  /* ══════════════ 8. BOOKING ══════════════ */
   var modal   = $("#bookingModal");
   var form    = $("#bookingForm");
   var stepsEl = $("#steps");
