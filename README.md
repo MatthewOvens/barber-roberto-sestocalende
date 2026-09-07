@@ -90,7 +90,8 @@ La palette non viene da un dataset: è presa dal salone.
 
 I token stanno in `:root` in cima al CSS su tre livelli (primitive → semantic →
 componente). Cambiare `--accent` ricolora tutte le CTA del sito senza toccare
-altro; cambiare `--brand` ricolora titoli, footer, banda CTA e manifesto.
+altro; cambiare `--brand` ricolora titoli, footer, banda CTA e le due fasce
+scure (`.section--dark`: Lavori e Recensioni).
 
 Dark mode volutamente assente (vedi `CLAUDE.md`).
 
@@ -108,9 +109,10 @@ logo, interno, i due lavori di colore, i prodotti Davines, la locandina
 *Man & Woman Concept* e `vetrina-manifesto.jpg`.
 
 `vetrina-manifesto.jpg` è lo scatto **precedente** della vetrina, quello con
-l'insegna verde e il manifesto Davines stampato sul vetro. Lo usa solo la sezione
-*Manifesto*, perché è la prova di quel testo: la vetrina di oggi ha una grafica
-diversa e quel manifesto non si vede più. Non sostituirlo con `vetrina.jpg`.
+l'insegna verde e il manifesto Davines stampato sul vetro. Da quando la sezione
+*Manifesto* è stata rimossa non lo usa più nessuna sezione, ma resta in
+`assets/img/`: la vetrina di oggi ha una grafica diversa e quel manifesto non si
+vede più, quindi non è un doppione di `vetrina.jpg`.
 
 Le due risoluzioni convivono senza che nessuna venga stirata:
 

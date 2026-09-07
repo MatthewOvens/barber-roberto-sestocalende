@@ -49,7 +49,6 @@
       "alt.ba3dopo": "Gli stessi capelli dopo il servizio: ricci definiti con riflessi caramello",
       "alt.ba4prima": "Capelli lunghi biondi visti di spalle, di tono uniforme e opaco, con lunghezze crespe",
       "alt.ba4dopo": "Gli stessi capelli dopo il servizio: biondo multitono luminoso con onde definite",
-      "alt.manifesto": "Il manifesto stampato sul vetro della vetrina, accanto all'insegna verde",
 
       /* — marchio — */
       "brand.tagline": "Man &amp; Woman Concept · Sesto Calende",
@@ -158,12 +157,6 @@
       "brand3.text": "Siamo salone partner: Dia Color per il tono su tono, French Balayage per le schiariture, Metal Detox e Absolut Repair Molecular in cabina.",
       "brands.cap1": "Il banco da lavoro per l'uomo: rasoio, macchinette, forbici e i vasetti American Crew.",
       "brands.caption": "Le linee in vendita in salone: se una ti trovi bene, la ricompri qui.",
-
-      /* — manifesto — */
-      "mani.eyebrow": "Sulla vetrina",
-      "mani.title": "Quello che c'è scritto sul vetro",
-      "mani.quote": "In questo salone accogliamo i nostri ospiti. Ascoltiamo le richieste. Ci prendiamo cura delle persone. Amiamo i capelli. Crediamo in una bellezza sostenibile. Celebriamo grazia ed eleganza. Apprezziamo i suggerimenti. Crediamo che ciò che è bello sia anche buono.",
-      "mani.src": "Il manifesto Davines, applicato sulla vetrina del salone.",
 
       /* — team — */
       "team.eyebrow": "Chi ti segue",
@@ -334,7 +327,6 @@
       "alt.ba3dopo": "The same hair after the service: defined curls with caramel highlights",
       "alt.ba4prima": "Long blonde hair seen from behind, flat and uniform in tone, with frizzy lengths",
       "alt.ba4dopo": "The same hair after the service: a luminous multi-tonal blonde with defined waves",
-      "alt.manifesto": "The manifesto printed on the shop window glass, next to the green sign",
 
       /* — marchio — */
       "brand.tagline": "Man &amp; Woman Concept · Sesto Calende",
@@ -443,12 +435,6 @@
       "brand3.text": "We are a partner salon: Dia Color for tone-on-tone, French Balayage for lightening, Metal Detox and Absolut Repair Molecular at the basin.",
       "brands.cap1": "The men's workbench: razor, clippers, shears and the American Crew tubs.",
       "brands.caption": "The lines on sale in the salon: if one suits you, you buy it again here.",
-
-      /* — manifesto — */
-      "mani.eyebrow": "On the window",
-      "mani.title": "What is written on the glass",
-      "mani.quote": "In this salon we welcome our guests. We listen to requests. We care about people. We love hair. We believe in sustainable beauty. We celebrate grace and elegance. We appreciate suggestions. We believe that beautiful is also good.",
-      "mani.src": "The Davines manifesto, printed on the salon window.",
 
       /* — team — */
       "team.eyebrow": "Who looks after you",

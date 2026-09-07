@@ -34,7 +34,8 @@
   /* — primitive: cotto del pavimento — */
   --cotto-700: #8A4F35;   /* testo piccolo su chiaro — 6,0:1 */
   --cotto-600: #A05B3E;   /* superficie CTA — bianco sopra 5,2:1 */
-  --cotto-500: #B5765A;   /* accenti su fondo scuro */
+  --cotto-500: #B5765A;   /* accenti decorativi */
+  --cotto-300: #E2A98A;   /* testo e bordi sul verde — 4,8:1 su --brand */
   --cotto-100: #F2E2D8;
   --cotto-050: #FAF2EC;
 
@@ -57,6 +58,12 @@
   --accent-ink:    var(--cotto-700);
   --on-accent:     var(--white);
   --ring:          var(--cotto-600);
+
+  /* — testo e superfici sopra il verde --brand — */
+  --on-brand:       #E8EFEA;                 /* testo corrente */
+  --on-brand-muted: rgba(255,255,255,.72);   /* testo secondario */
+  --on-brand-line:  rgba(255,255,255,.16);   /* bordi e filetti */
+  --on-brand-veil:  rgba(255,255,255,.06);   /* superfici sollevate */
 
   /* — spacing (standard density, 4pt rhythm) — */
   --space-1: .25rem;  --space-2: .5rem;   --space-3: .75rem;
@@ -164,6 +171,48 @@ h1, h2, h3, h4 {
 @media (min-width: 1024px) { .section { padding-block: var(--space-12); } }
 .section--tint { background: var(--bg-alt); }
 
+/* Fascia sul verde dell'insegna: la usano Lavori e Recensioni per spezzare la
+   sequenza avorio/beige. Il fondo scuro ribalta i colori di tutto quello che ci
+   finisce dentro — testi in chiaro, accenti sul cotto chiaro, bordi e superfici
+   in bianco trasparente — quindi i componenti restano gli stessi e non serve
+   una variante per ciascuno. Il focus ring si ridefinisce qui: il cotto scuro
+   su verde non si distingue. */
+.section--dark {
+  background: var(--brand);
+  color: var(--on-brand);
+  --ring: var(--cotto-100);
+}
+.section--dark .section__title { color: var(--white); }
+.section--dark .section__lead { color: var(--on-brand-muted); }
+.section--dark .eyebrow { color: var(--cotto-300); }
+.section--dark .eyebrow::after { background: linear-gradient(90deg, var(--cotto-300), transparent); }
+.section--dark .link-arrow { color: var(--cotto-300); }
+.section--dark .link-arrow:hover { border-bottom-color: var(--cotto-300); }
+.section--dark .gallery__frame { background: var(--on-brand-veil); }
+
+/* Il segnaposto resta volutamente fuori palette anche qui: stesso tratteggio
+   cotto, ma su un velo chiaro invece che sul beige. */
+.section--dark .todo {
+  border-color: var(--cotto-300);
+  background: var(--on-brand-veil);
+  color: var(--cotto-100);
+}
+
+.section--dark .review {
+  background: var(--on-brand-veil);
+  border-color: var(--on-brand-line);
+  box-shadow: none;
+  color: var(--on-brand);
+}
+.section--dark .review::before { color: var(--on-brand-line); }
+.section--dark .review__by { border-top-color: var(--on-brand-line); }
+.section--dark .review__by small { color: var(--on-brand-muted); }
+.section--dark .review--empty {
+  border-color: var(--cotto-300);
+  color: var(--cotto-100);
+}
+.section--dark .review--empty .review__by { border-top-color: var(--cotto-300); }
+
 .section__head { max-width: 620px; margin-bottom: var(--space-8); }
 .section__title { font-size: var(--fs-h2); }
 .section__lead {
@@ -187,7 +236,6 @@ h1, h2, h3, h4 {
   background: linear-gradient(90deg, var(--cotto-500), transparent);
 }
 .eyebrow--tight::after { display: none; }
-.eyebrow--light { color: var(--cotto-500); }
 
 /* Segnaposto redazionale. Volutamente fuori palette: finche' resta a video
    e' un promemoria che quella sezione non ha ancora dati reali. */
@@ -705,26 +753,6 @@ h1, h2, h3, h4 {
 .brands__shot img { width: 100%; border-radius: var(--r-lg); box-shadow: var(--sh-2); }
 .brands__shot figcaption { font-size: var(--fs-sm); color: var(--fg-muted); max-width: 40ch; }
 
-/* ---------- 10c. MANIFESTO ---------- */
-.manifesto { background: var(--brand); color: #E8EFEA; padding-block: var(--space-10); }
-@media (min-width: 768px) { .manifesto { padding-block: var(--space-11); } }
-.manifesto__inner { display: grid; gap: var(--space-8); align-items: center; }
-@media (min-width: 900px) { .manifesto__inner { grid-template-columns: 1.15fr .85fr; gap: var(--space-9); } }
-.manifesto__title { color: var(--white); font-size: var(--fs-h2); }
-.manifesto__quote {
-  margin-top: var(--space-5);
-  border-left: 3px solid var(--cotto-500);
-  padding-left: var(--space-5);
-}
-.manifesto__quote p {
-  font-family: var(--font-display); font-style: italic;
-  font-size: clamp(1.1rem, .92rem + .75vw, 1.55rem); line-height: 1.5;
-  color: var(--white);
-}
-.manifesto__src { margin-top: var(--space-5); font-size: var(--fs-sm); color: rgba(255,255,255,.6); }
-.manifesto__media { max-width: 400px; margin-inline: auto; }
-.manifesto__media img { width: 100%; border-radius: var(--r-lg); box-shadow: var(--sh-4); }
-
 /* ---------- 11. TEAM ---------- */
 .team {
   display: grid; gap: var(--space-5);
@@ -1226,4 +1254,18 @@ h1, h2, h3, h4 {
   body { background: #fff; }
   .reveal { opacity: 1; transform: none; }
   .section { padding-block: 1.5rem; }
+  /* In stampa i fondi non vengono resi: senza questo le fasce verdi
+     stamperebbero testo chiaro su bianco. Basta rimappare i token. */
+  .section--dark {
+    background: none;
+    --on-brand: var(--fg);
+    --on-brand-muted: var(--fg-muted);
+    --on-brand-line: var(--border);
+    --on-brand-veil: transparent;
+  }
+  .section--dark .section__title { color: var(--brand); }
+  .section--dark .eyebrow,
+  .section--dark .link-arrow,
+  .section--dark .todo,
+  .section--dark .review--empty { color: var(--accent-ink); }
 }

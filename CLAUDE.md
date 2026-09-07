@@ -57,8 +57,17 @@ fra gli anti-pattern per Soft UI Evolution applicato al settore beauty.
   Le card dei servizi usano icone e non foto.
 - `vetrina.jpg` e `vetrina-manifesto.jpg` sono **due scatti diversi** della stessa
   vetrina in due momenti. Il secondo, più vecchio, è l'unico che mostra il
-  manifesto Davines sul vetro ed è la prova del testo citato nella sezione
-  Manifesto: quella sezione deve continuare a puntare lì.
+  manifesto Davines sul vetro. La sezione che lo mostrava è stata rimossa, quindi
+  oggi il file non è usato da nessuna parte: non cancellarlo e non trattarlo come
+  un doppione di `vetrina.jpg`.
+- **Lavori** e **Recensioni** stanno su `.section--dark`, il verde `--brand`.
+  Dentro quel contenitore i componenti non vanno duplicati in variante scura: i
+  colori si ribaltano da soli tramite i token `--on-brand*` e `--cotto-300`
+  (vedi il blocco `.section--dark` nel CSS, più il fallback in `@media print`,
+  perché in stampa i fondi non vengono resi). Se aggiungi un componente lì
+  dentro, estendi quel blocco invece di scrivere colori nel componente.
+  Sul verde l'accento è `--cotto-300`, non `--cotto-500`: il cotto pieno si
+  ferma a 2,7:1 e come testo non si legge.
 - La disponibilità degli slot è finta ma deterministica (hash di data+ora):
   la stessa data mostra sempre gli stessi orari occupati. Non renderla random.
 - Gli slot si generano dalla costante `SCHEDULE` in `main.js`, che replica gli
